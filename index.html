@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>臺灣客語 AI 文化轉譯與創新應用成果展、技術展示暨論壇</title>
+  <meta name="description" content="臺灣客語 AI 文化轉譯與創新應用成果展、技術展示暨論壇 Taiwan Hakka AI Cultural Translation & Innovation Forum" />
+  <style>
+    :root {
+      --hakka-blue: #123c69;
+      --deep-blue: #0b2239;
+      --tech-blue: #1b6ca8;
+      --warm-gold: #f5b041;
+      --soft-gold: #fff5dd;
+      --mist: #f4f7fb;
+      --ink: #263238;
+      --muted: #627080;
+      --white: #ffffff;
+      --line: #d9e2ec;
+      --green: #3a8f7b;
+      --shadow: 0 18px 40px rgba(13, 41, 67, 0.14);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--mist);
+      line-height: 1.75;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 16px;
+      top: -60px;
+      background: var(--deep-blue);
+      color: var(--white);
+      padding: 10px 14px;
+      border-radius: 8px;
+      z-index: 1000;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(217, 226, 236, 0.82);
+    }
+
+    .topbar {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 22px;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 250px;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 34% 28%, rgba(255,255,255,0.9) 0 10%, transparent 11%),
+        linear-gradient(135deg, var(--hakka-blue), var(--tech-blue));
+      position: relative;
+      box-shadow: 0 8px 22px rgba(18, 60, 105, 0.26);
+    }
+
+    .brand-mark::after {
+      content: "AI";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      font-weight: 900;
+      letter-spacing: 0.03em;
+      font-size: 14px;
+    }
+
+    .brand-title {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+
+    .brand-title strong {
+      color: var(--deep-blue);
+      font-size: 15px;
+    }
+
+    .brand-title span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      color: var(--deep-blue);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.18s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background: var(--soft-gold);
+      color: #7a4c00;
+      outline: none;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: var(--deep-blue);
+      color: var(--white);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 16% 18%, rgba(245, 176, 65, 0.34), transparent 24%),
+        radial-gradient(circle at 82% 22%, rgba(57, 143, 123, 0.23), transparent 28%),
+        linear-gradient(140deg, #07192b 0%, #123c69 52%, #1b6ca8 100%);
+      color: var(--white);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.18));
+    }
+
+    .hero-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 86px 22px 68px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      gap: 34px;
+      position: relative;
+      z-index: 1;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.28);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--warm-gold);
+      box-shadow: 0 0 0 8px rgba(245,176,65,0.18);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      font-weight: 900;
+    }
+
+    .hero-subtitle {
+      margin: 20px 0 0;
+      color: rgba(255,255,255,0.88);
+      font-size: clamp(17px, 2vw, 21px);
+      max-width: 770px;
+    }
+
+    .hero-meta {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .meta-pill {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.24);
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.95);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    .btn.primary {
+      background: var(--warm-gold);
+      color: #2d2105;
+      box-shadow: 0 10px 24px rgba(245,176,65,0.34);
+    }
+
+    .btn.secondary {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.34);
+      color: var(--white);
+    }
+
+    .btn.light {
+      background: var(--white);
+      color: var(--hakka-blue);
+      border-color: var(--line);
+    }
+
+    .btn:hover,
+    .btn:focus {
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.26);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+      backdrop-filter: blur(16px);
+    }
+
+    .countdown-title {
+      margin: 0 0 14px;
+      font-size: 18px;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .count-item {
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.20);
+      border-radius: 16px;
+      text-align: center;
+      padding: 13px 8px;
+    }
+
+    .count-item strong {
+      font-size: 28px;
+      line-height: 1;
+      display: block;
+    }
+
+    .count-item span {
+      font-size: 12px;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .quick-info {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .quick-info div {
+      background: rgba(7, 25, 43, 0.24);
+      border-radius: 16px;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .quick-info b {
+      color: #ffe0a1;
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    section {
+      padding: 76px 22px;
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: flex-end;
+      margin-bottom: 28px;
+    }
+
+    .section-kicker {
+      color: var(--tech-blue);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(26px, 3vw, 38px);
+      line-height: 1.25;
+      color: var(--deep-blue);
+      letter-spacing: -0.015em;
+    }
+
+    .section-desc {
+      margin: 10px 0 0;
+      color: var(--muted);
+      max-width: 760px;
+      font-size: 16px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: 0 14px 30px rgba(13, 41, 67, 0.07);
+    }
+
+    .feature-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 230px;
+    }
+
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 84px;
+      height: 84px;
+      background: var(--soft-gold);
+      border-bottom-right-radius: 100%;
+    }
+
+    .feature-icon {
+      position: relative;
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      font-size: 26px;
+      background: linear-gradient(135deg, var(--hakka-blue), var(--tech-blue));
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: var(--deep-blue);
+      font-size: 21px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .stat {
+      background: var(--deep-blue);
+      color: var(--white);
+      border-radius: 20px;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat::after {
+      content: "";
+      position: absolute;
+      right: -22px;
+      top: -22px;
+      width: 80px;
+      height: 80px;
+      background: rgba(245,176,65,0.24);
+      border-radius: 50%;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 32px;
+      line-height: 1.1;
+    }
+
+    .stat span {
+      color: rgba(255,255,255,0.75);
+      font-size: 14px;
+    }
+
+    .dates {
+      position: relative;
+      display: grid;
+      gap: 14px;
+    }
+
+    .date-item {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 16px;
+      align-items: center;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 10px 22px rgba(13, 41, 67, 0.06);
+    }
+
+    .date-item time {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      border-radius: 16px;
+      background: var(--soft-gold);
+      color: #7a4c00;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .date-item b {
+      color: var(--deep-blue);
+      display: block;
+    }
+
+    .date-item span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .cfp-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      background: #edf6fb;
+      color: var(--hakka-blue);
+      border: 1px solid #cde7f7;
+      border-radius: 999px;
+      padding: 9px 12px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .tab-button {
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--deep-blue);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .tab-button.active {
+      background: var(--hakka-blue);
+      color: var(--white);
+      border-color: var(--hakka-blue);
+    }
+
+    .program-panel {
+      display: none;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .program-panel.active {
+      display: block;
+    }
+
+    .program-row {
+      display: grid;
+      grid-template-columns: 145px 1fr 1fr;
+      gap: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .program-row:last-child {
+      border-bottom: 0;
+    }
+
+    .program-time {
+      padding: 16px;
+      background: #f8fbfd;
+      color: var(--hakka-blue);
+      font-weight: 900;
+      border-right: 1px solid var(--line);
+    }
+
+    .program-content {
+      padding: 16px 18px;
+      border-right: 1px solid var(--line);
+    }
+
+    .program-content:last-child {
+      border-right: 0;
+    }
+
+    .program-content b {
+      display: block;
+      color: var(--deep-blue);
+      margin-bottom: 4px;
+    }
+
+    .program-content span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .speaker-card {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .speaker-avatar {
+      flex: 0 0 62px;
+      height: 62px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--hakka-blue), var(--green));
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 20px;
+    }
+
+    .speaker-card small {
+      color: var(--tech-blue);
+      font-weight: 800;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .exhibit-map {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+
+    .zone {
+      min-height: 160px;
+      border-radius: 20px;
+      padding: 20px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.88), rgba(255,255,255,0.96)),
+        radial-gradient(circle at right top, rgba(245,176,65,0.34), transparent 40%);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 24px rgba(13, 41, 67, 0.06);
+    }
+
+    .zone strong {
+      display: inline-flex;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      align-items: center;
+      justify-content: center;
+      background: var(--deep-blue);
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .zone h3 {
+      margin: 0 0 8px;
+      color: var(--deep-blue);
+    }
+
+    .zone p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .demo-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .demo-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .demo-item span {
+      flex: 0 0 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: #e9f5fb;
+      color: var(--tech-blue);
+      font-weight: 900;
+    }
+
+    .demo-item b {
+      color: var(--deep-blue);
+      display: block;
+    }
+
+    .demo-item p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .registration {
+      background:
+        radial-gradient(circle at 8% 20%, rgba(245,176,65,0.26), transparent 26%),
+        linear-gradient(135deg, var(--deep-blue), var(--hakka-blue));
+      color: var(--white);
+    }
+
+    .registration h2,
+    .registration .section-kicker {
+      color: var(--white);
+    }
+
+    .registration .section-desc {
+      color: rgba(255,255,255,0.78);
+    }
+
+    .form-card {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.92);
+      font-size: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 14px;
+      padding: 12px 13px;
+      font: inherit;
+      background: rgba(255,255,255,0.94);
+      color: var(--ink);
+    }
+
+    textarea {
+      min-height: 116px;
+      resize: vertical;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    .notice {
+      background: var(--soft-gold);
+      border: 1px solid #ffe1a1;
+      color: #704600;
+      border-radius: 18px;
+      padding: 16px 18px;
+      margin-top: 16px;
+    }
+
+    .venue-card {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .map-placeholder {
+      min-height: 330px;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(135deg, rgba(27,108,168,0.92), rgba(18,60,105,0.92)),
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.16) 0 2px, transparent 2px 12px);
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 30px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .map-placeholder::before,
+    .map-placeholder::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+    }
+
+    .map-placeholder::before {
+      width: 260px;
+      height: 260px;
+      left: -80px;
+      top: -90px;
+    }
+
+    .map-placeholder::after {
+      width: 180px;
+      height: 180px;
+      right: -50px;
+      bottom: -40px;
+    }
+
+    .map-placeholder div {
+      position: relative;
+      z-index: 1;
+    }
+
+    .map-placeholder strong {
+      display: block;
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .download-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .download-item {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: 0.18s ease;
+    }
+
+    .download-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(13, 41, 67, 0.08);
+    }
+
+    .download-item b {
+      color: var(--deep-blue);
+    }
+
+    .download-item span {
+      color: var(--tech-blue);
+      font-weight: 900;
+    }
+
+    .faq {
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--deep-blue);
+      font-weight: 900;
+    }
+
+    details p {
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    footer {
+      background: #07192b;
+      color: rgba(255,255,255,0.78);
+      padding: 34px 22px;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    footer strong {
+      color: var(--white);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    footer a {
+      color: #ffe0a1;
+      font-weight: 700;
+    }
+
+    .back-top {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      border: 0;
+      background: var(--warm-gold);
+      color: #2d2105;
+      box-shadow: 0 10px 20px rgba(13, 41, 67, 0.18);
+      font-weight: 900;
+      cursor: pointer;
+      display: none;
+      z-index: 80;
+    }
+
+    .back-top.show {
+      display: block;
+    }
+
+    @media (max-width: 960px) {
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      nav {
+        position: absolute;
+        inset: 73px 14px auto 14px;
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+        padding: 12px;
+        display: none;
+        justify-content: flex-start;
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        padding-top: 62px;
+      }
+
+      .grid-3,
+      .stats,
+      .download-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .exhibit-map {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .venue-card {
+        grid-template-columns: 1fr;
+      }
+
+      .program-row {
+        grid-template-columns: 120px 1fr;
+      }
+
+      .program-content:nth-child(3) {
+        grid-column: 2 / -1;
+        border-top: 1px solid var(--line);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .topbar {
+        padding: 12px 16px;
+      }
+
+      .brand {
+        min-width: auto;
+      }
+
+      .brand-title strong {
+        font-size: 13px;
+      }
+
+      .brand-title span {
+        display: none;
+      }
+
+      section {
+        padding: 58px 16px;
+      }
+
+      .hero-inner {
+        padding: 48px 16px 54px;
+      }
+
+      .countdown,
+      .grid-2,
+      .grid-3,
+      .stats,
+      .cfp-list,
+      .demo-list,
+      .download-list,
+      .exhibit-map,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .date-item {
+        grid-template-columns: 1fr;
+      }
+
+      .program-row {
+        grid-template-columns: 1fr;
+      }
+
+      .program-time {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .program-content {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .program-content:last-child {
+        border-bottom: 0;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要內容</a>
+
+  <header>
+    <div class="topbar">
+      <a class="brand" href="#home" aria-label="返回首頁">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-title">
+          <strong>臺灣客語 AI 論壇</strong>
+          <span>Hakka AI Cultural Translation</span>
+        </div>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="開啟選單" aria-expanded="false">選單</button>
+      <nav aria-label="主要選單">
+        <a href="#about">關於活動</a>
+        <a href="#dates">重要日期</a>
+        <a href="#cfp">論文徵稿</a>
+        <a href="#program">會議議程</a>
+        <a href="#speakers">專題講者</a>
+        <a href="#exhibition">成果展</a>
+        <a href="#demo">技術展示</a>
+        <a href="#registration">報名</a>
+        <a href="#venue">交通資訊</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">115 年度師生研究成果展、技術產品展示暨技術論壇</div>
+          <h1>臺灣客語 AI 文化轉譯與創新應用成果展、技術展示暨論壇</h1>
+          <p class="hero-subtitle">Taiwan Hakka AI Cultural Translation & Innovation Forum</p>
+          <p class="hero-subtitle">以人工智慧轉譯客家文化，以語言科技開展客語學習、文化傳播與低資源語言創新應用。</p>
+          <div class="hero-meta" aria-label="活動基本資訊">
+            <span class="meta-pill">2026.11.24~25</span>
+            <span class="meta-pill">國立聯合大學八甲校區</span>
+            <span class="meta-pill">預計 250 人參與</span>
+            <span class="meta-pill">論文發表・成果展・技術論壇</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn primary" href="#registration">立即報名</a>
+            <a class="btn secondary" href="#cfp">論文徵稿</a>
+            <a class="btn secondary" href="#program">查看議程</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="活動倒數與資訊">
+          <h2 class="countdown-title">距離活動開始</h2>
+          <div class="countdown" id="countdown">
+            <div class="count-item"><strong id="days">--</strong><span>天</span></div>
+            <div class="count-item"><strong id="hours">--</strong><span>時</span></div>
+            <div class="count-item"><strong id="minutes">--</strong><span>分</span></div>
+            <div class="count-item"><strong id="seconds">--</strong><span>秒</span></div>
+          </div>
+          <div class="quick-info">
+            <div><b>活動主軸：</b>跨院師生成果展、校際學術研討會、技術產品展示暨技術論壇</div>
+            <div><b>展示內容：</b>HAKKAGPT、TALKA、桃園大客家 AI 學習平台、客語 AI 共創平台</div>
+            <div><b>技術焦點：</b>ASR、TTS、機器翻譯、RAG、生成式 AI、客語 AI 實體機器人</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">About</div>
+            <h2>關於活動</h2>
+            <p class="section-desc">本活動建構跨校跨院之客語人工智慧研究與應用交流平台，整合語言科技、人工智慧與客家文化研究之教學與研究能量。</p>
+          </div>
+          <a class="btn light" href="#downloads">下載活動資料</a>
+        </div>
+
+        <div class="grid-3">
+          <article class="card feature-card">
+            <div class="feature-icon" aria-hidden="true">展</div>
+            <h3>跨院師生研究成果展</h3>
+            <p>呈現學生於人工智慧應用、語言科技發展與文化內容轉譯之整合能力，展現跨院課程與專題研究成果。</p>
+          </article>
+          <article class="card feature-card">
+            <div class="feature-icon" aria-hidden="true">論</div>
+            <h3>校際學術研討會</h3>
+            <p>邀請跨校專家學者，聚焦客語語料庫建置、語言模型發展、文化轉譯機制與低資源語言技術。</p>
+          </article>
+          <article class="card feature-card">
+            <div class="feature-icon" aria-hidden="true">技</div>
+            <h3>技術產品展示暨技術論壇</h3>
+            <p>展示 ASR、TTS、機器翻譯、客語 AI 實體機器人與互動應用，促進產學合作與技術交流。</p>
+          </article>
+        </div>
+
+        <div class="stats" aria-label="活動規模">
+          <div class="stat"><strong>250</strong><span>預計參加人數</span></div>
+          <div class="stat"><strong>16</strong><span>論文發表篇數</span></div>
+          <div class="stat"><strong>20</strong><span>教師與學生展示作品</span></div>
+          <div class="stat"><strong>10</strong><span>技術與產品展示</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dates">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Important Dates</div>
+            <h2>重要日期</h2>
+            <p class="section-desc"></p>
+          </div>
+        </div>
+
+        <div class="dates">
+          <div class="date-item">
+            <time datetime="2026-06">2026.06.01</time>
+            <div><b>官網上線與徵稿公告</b><span>發布活動主題、徵稿範圍與報名方式。</span></div>
+          </div>
+          <div class="date-item">
+            <time datetime="2026-08-31">2026.08.31</time>
+            <div><b>論文摘要截稿</b><span>一般論文、短篇論文、海報論文與技術展示論文摘要繳交。</span></div>
+          </div>
+          <div class="date-item">
+            <time datetime="2026-09-20">2026.09.20</time>
+            <div><b>論文審查結果通知</b><span>公告口頭發表、海報發表與系統展示錄取結果。</span></div>
+          </div>
+          <div class="date-item">
+            <time datetime="2026-10-15">2026.10.15</time>
+            <div><b>完整論文／海報摘要繳交</b><span>繳交定稿、授權同意與發表者資料。</span></div>
+          </div>
+          <div class="date-item">
+            <time datetime="2026-10-31">2026.10.31</time>
+            <div><b>早鳥報名截止</b><span>完成與會者、發表者、展示團隊與廠商代表報名。</span></div>
+          </div>
+          <div class="date-item">
+            <time datetime="2026-11-24">2026.11.24~25</time>
+            <div><b>正式活動</b><span>開幕式、跨校學術研討會、技術論壇、成果展與互動展示。</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cfp">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Call for Papers</div>
+            <h2>論文徵稿</h2>
+            <p class="section-desc">歡迎學術論文、實作研究、系統設計、案例研究、學生專題與技術展示投稿，共同探討客語 AI 與文化轉譯之創新應用。</p>
+          </div>
+          <a class="btn light" href="#registration">投稿／報名</a>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3>徵稿主題</h3>
+            <div class="cfp-list">
+              <span class="tag">客語人工智慧</span>
+              <span class="tag">低資源語言技術</span>
+              <span class="tag">客語語料庫建置</span>
+              <span class="tag">大型語言模型</span>
+              <span class="tag">ASR 語音辨識</span>
+              <span class="tag">TTS 語音合成</span>
+              <span class="tag">華客／客華翻譯</span>
+              <span class="tag">RAG 與 GraphRAG</span>
+              <span class="tag">客家文化典藏</span>
+              <span class="tag">生成式 AI 創作</span>
+              <span class="tag">資訊視覺化</span>
+              <span class="tag">AI 倫理與資料授權</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>投稿類型與審查重點</h3>
+            <p><b>投稿類型：</b>一般論文、短篇論文、海報論文、技術展示論文、工作坊提案。</p>
+            <p style="margin-top:12px;"><b>審查重點：</b>主題相關性、研究方法或系統設計完整性、客語與客家文化貢獻、AI 技術創新性、實務應用與推廣潛力。</p>
+            <p style="margin-top:12px;"><b>發表形式：</b>口頭發表、海報發表、系統展示、學生專題展示。</p>
+          </article>
+        </div>
+
+        
+      </div>
+    </section>
+
+    <section id="program">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Program</div>
+            <h2>會議議程</h2>
+            <p class="section-desc">兩日活動包含開幕式、專題演講、校際學術研討會、跨院師生成果展、技術產品展示與技術論壇。</p>
+          </div>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="議程日期選擇">
+          <button class="tab-button active" type="button" data-tab="day1" role="tab" aria-selected="true">第一天 11/24</button>
+          <button class="tab-button" type="button" data-tab="day2" role="tab" aria-selected="false">第二天 11/25</button>
+        </div>
+
+        <div class="program-panel active" id="day1" role="tabpanel">
+          <div class="program-row">
+            <div class="program-time">09:00–09:30</div>
+            <div class="program-content"><b>報到</b><span>與會者報到、領取資料。</span></div>
+            <div class="program-content"><b>Registration</b><span>Check-in and materials pickup.</span></div>
+          </div>
+          <div class="program-row">
+            <div class="program-time">09:30–10:00</div>
+            <div class="program-content"><b>開幕式</b><span>貴賓致詞、活動說明。</span></div>
+            <div class="program-content"><b>Opening Ceremony</b><span>Welcome remarks and introduction.</span></div>
+          </div>
+          <div class="program-row">
+            <div class="program-time">10:00–11:00</div>
+            <div class="program-content"><b>專題演講（一）</b><span>AI 與語言科技發展趨勢。</span></div>
+            <div class="program-content"><b>Keynote 1</b><span>AI and language technology trends.</span></div>
+          </div>
+          <div class="program-row">
+            <div class="program-time">11:00–12:00</div>
+            <div class="program-content"><b>專題演講（二）</b><span>大型語言模型與生成式 AI 應用。</span></div>
+            <div class="program-content"><b>Keynote 2</b><span>Large language models and generative AI.</span></div>
+          </div>
+          <div class="program-row">
+            <div class="program-time">12:00–13:30</div>
+            <div class="program-content"><b>午餐與交流</b></div>
+            <div class="program-content"><b>Lunch & networking.</b></div>
+          </div>
+          <div class="program-row">
+            <div class="program-time">13:30–14:30</div>
+            <div class="program-content"><b>專題演講（三）</b><span>客語 AI 產業應用實務。</span></div>
+            <div class="program-content"><b>Keynote 3</b><span>Industrial applications of Hakka AI.</span></div>
+          </div>
+          <div class="program-row">
+            <div class="program-time">14:30–16:00</div>
+            <div class="program-content"><b>校際學術研討會（一）</b><span>客語語料庫建置與語言模型發展。</span></div>
+            <div class="program-content"><b>Paper Session A</b><span>Corpora and language models.</span></div>
+          </div>
+           <div class="program-row">
+            <div class="program-time">16:00–16:20</div>
+            <div class="program-content"><b>茶敘</b><span></span></div>
+            <div class="program-content"><b>Tea reception</b><span></span></div>
+          </div>
+          <div class="program-row">
+            <div class="program-time">16:20–17:30</div>
+            <div class="program-content"><b>校際學術研討會（二）</b><span>文化轉譯與 AI 應用。</span></div>
+            <div class="program-content"><b>Paper Session B</b><span>Cultural translation and AI applications.</span></div>
+          </div>
+          <div class="program-row">
+            <div class="program-time">17:30–18:00</div>
+            <div class="program-content"><b>綜合座談與交流</b><span>與談、提問與討論。</span></div>
+            <div class="program-content"><b>Panel Discussion</b><span>Discussion and networking.</span></div>
+          </div>
+        </div>
+
+        <div class="program-panel" id="day2" role="tabpanel">
+          <div class="program-row">
+            <div class="program-time">08:30–09:00</div>
+            <div class="program-content"><b>報到</b><span>A 會場、B 會場同步報到。</span></div>
+            <div class="program-content"><b>Registration</b><span>Check-in.</span></div>
+          </div>
+          <div class="program-row">
+            <div class="program-time">09:00–09:30</div>
+            <div class="program-content"><b>成果展開幕暨導覽與客家文化週開幕典禮</b><span></span></div>
+            <div class="program-content"><b>Exhibition Opening, Guided Tour, and Hakka Cultural Week Opening Ceremony</b><span></span></div>
+          </div>
+          <div class="program-row">
+            <div class="program-time">09:30–10:30</div>
+            <div class="program-content">
+              <b>A 會場：專題演講（四）</b><span>文化與資訊素養。</span>
+              <div style="margin-top:8px; padding-top:8px; border-top:1px dashed #d1d5db;">
+                <b style="display:block;">B 會場：成果展示</b><span>HAKKAGPT、TALKA、桃園大客家、客語 AI 共創平台。</span>
+              </div>
+            </div>
+            <div class="program-content">
+              <b>A Venue: Keynote Speech (4)</b><span>Cultural and Information Literacy.</span>
+              <div style="margin-top:8px; padding-top:8px; border-top:1px dashed #d1d5db;">
+                <b style="display:block;">Venue B: Exhibition</b><span>HAKKAGPT, TALKA, Taoyuan Big Hakka, and the Hakka AI Co-Creation Platform.</span>
+              </div>
+            </div>
+          </div>
+          <div class="program-row">
+            <div class="program-time">10:30–11:30</div>
+            <div class="program-content">
+              <b>A 會場：專題演講（五）</b><span>生成式 AI 與客家文化復振應用。</span>
+              <div style="margin-top:8px; padding-top:8px; border-top:1px dashed #d1d5db;">
+                <b style="display:block;">B 會場：展示與解說</b><span>Generative AI and Hakka Culture Revitalization Applications.</span>
+              </div>
+            </div>
+            <div class="program-content">
+              <b>Venue A: Keynote (5)</b><span>Generative AI and Hakka Culture Revitalization Applications.</span>
+              <div style="margin-top:8px; padding-top:8px; border-top:1px dashed #d1d5db;">
+                <b style="display:block;">Venue B: Exhibition & Guided Tour</b><span>Cross-college faculty and student research showcase.</span>
+              </div>
+            </div>
+          </div>
+          <div class="program-row">
+            <div class="program-time">11:30–12:00</div>
+            <div class="program-content"><b>技術分享</b><span>智慧客家實驗室成果展示。</span></div>
+            <div class="program-content"><b>Tech Sharing</b><span>Smart Hakka Lab demo.</span></div>
+          </div>
+          <div class="program-row">
+            <div class="program-time">12:00–13:30</div>
+            <div class="program-content"><b>午餐與交流</b><span></span></div>
+            <div class="program-content"><b>Lunch & Networking</b><span></span></div>
+          </div>
+          <div class="program-row">
+            <div class="program-time">13:30–14:30</div>
+            <div class="program-content">
+              <b>A 會場：專題演講（六）</b><span>AI 專業客語語料庫與學習系統。</span>
+              <div style="margin-top:8px; padding-top:8px; border-top:1px dashed #d1d5db;">
+                <b style="display:block;">B 會場：技術產品展示</b><span>客語 AI 實體機器人、語音辨識與語音合成系統。</span>
+              </div>
+            </div>
+            <div class="program-content">
+              <b>Venue A: Keynote (6)</b><span>AI-based Hakka Corpus and Learning System.</span>
+              <div style="margin-top:8px; padding-top:8px; border-top:1px dashed #d1d5db;">
+                <b style="display:block;">Venue B: Technology Product Showcase</b><span>Hakka AI robot, speech recognition, and speech synthesis system.</span>
+              </div>
+            </div>
+          </div>
+          <div class="program-row">
+            <div class="program-time">14:30–15:30</div>
+            <div class="program-content">
+              <b>A 會場：專題演講（七）</b><span>AI 系統架構與應用。</span>
+              <div style="margin-top:8px; padding-top:8px; border-top:1px dashed #d1d5db;">
+                <b style="display:block;">B 會場：互動體驗</b><span>系統實作、平台體驗與交流。</span>
+              </div>
+            </div>
+            <div class="program-content">
+              <b>Venue A: Keynote</b><span>AI System Architecture and Applications.</span>
+              <div style="margin-top:8px; padding-top:8px; border-top:1px dashed #d1d5db;">
+                <b style="display:block;">Venue B: Interactive Experience</b><span>System demonstrations, hands-on platform trials, and networking.</span>
+              </div>
+            </div>
+          </div>
+          <div class="program-row">
+            <div class="program-time">15:30–15:50</div>
+            <div class="program-content"><b>茶敘</b><span></span></div>
+            <div class="program-content"><b>Tea reception</b><span></span></div>
+          </div>
+          <div class="program-row">
+            <div class="program-time">15:50–17:00</div>
+            <div class="program-content"><b>技術論壇與綜合座談</b><span>客語 AI 未來發展與跨域整合。</span></div>
+            <div class="program-content"><b>Technology Forum</b><span>Future development and collaboration.</span></div>
+          </div>
+          <div class="program-row">
+            <div class="program-time">17:00–17:30</div>
+            <div class="program-content"><b>閉幕式與成果回饋</b><span>成果回顧、意見回饋與後續合作。</span></div>
+            <div class="program-content"><b>Closing Ceremony</b><span>Feedback and next steps.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="speakers">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Speakers</div>
+            <h2>專題講者</h2>
+            <p class="section-desc">邀請資訊工程、語言科技、客家研究、文化資訊素養與產業實務專家，共同探討客語 AI 的研究基礎與應用方向。</p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <article class="card speaker-card">
+            <style>
+.speaker-avatar {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.speaker-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+</style>
+  <div class="speaker-avatar"><img src="speaker-01.jpeg" alt="丁川康副校長"></div>
+  <div><small>AI 與語言科技</small><h3>丁川康副校長</h3><p>專題演講：AI 與語言科技發展趨勢</p></div>
+          </article>
+          <article class="card speaker-card">
+            <div class="speaker-avatar"><img src="speaker-02.jpeg" alt="陳柏琳特聘教授"></div>
+            <div><small>大型語言模型</small><h3>陳柏琳特聘教授</h3><p>專題演講：大型語言模型與生成式 AI 應用</p></div>
+          </article>
+          <article class="card speaker-card">
+             <div class="speaker-avatar"><img src="speaker-03.jpeg" alt="李鴻欣博士"></div>
+            <div><small>產業應用</small><h3>李鴻欣博士</h3><p>專題演講：客語 AI 產業應用實務</p></div>
+          </article>
+          <article class="card speaker-card">
+            <div class="speaker-avatar"><img src="speaker-04.jpeg" alt="陳昭珍講座教授"></div>
+            <div><small>文化與資訊素養</small><h3>陳昭珍講座教授</h3><p>專題演講：文化與資訊素養</p></div>
+          </article>
+          <article class="card speaker-card">
+             <div class="speaker-avatar"><img src="speaker-05.jpeg" alt="蔡明峰教授"></div>
+            <div><small>文化復振應用</small><h3>蔡明峰教授</h3><p>專題演講：生成式 AI 與客家文化復振應用</p></div>
+          </article>
+          <article class="card speaker-card">
+             <div class="speaker-avatar"><img src="speaker-06.jpeg" alt="王家慶特聘教授"></div>
+            <div><small>AI 系統架構</small><h3>王家慶特聘教授</h3><p>專題演講：AI 系統架構與應用</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="exhibition">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Exhibition</div>
+            <h2>成果展</h2>
+            <p class="section-desc">以「客語 AI 從研究到應用」為策展主軸，呈現跨院課程、學生專題、智慧客家實驗室與產業合作成果。</p>
+          </div>
+        </div>
+
+        <div class="exhibit-map">
+          <article class="zone">
+            <img src="gohakka_KIWI.png" alt="Go Hakka 標誌" style="width:40px; height:40px; object-fit:contain;">
+            <h3>智慧客家實驗室成果展</h3>
+            <p>HAKKAGPT、TALKA、桃園大客家 AI 學習平台、客語 AI 共創平台。</p>
+          </article>
+          <article class="zone">
+            <img src="gohakka_KIWI.png" alt="Go Hakka 標誌" style="width:40px; height:40px; object-fit:contain;">
+            <h3>語音科技展示區</h3>
+            <p>客語 ASR、TTS、多腔調語音處理、即時字幕與語音互動。</p>
+          </article>
+          <article class="zone">
+            <img src="gohakka_KIWI.png" alt="Go Hakka 標誌" style="width:40px; height:40px; object-fit:contain;">
+            <h3>文化轉譯與生成式 AI</h3>
+            <p>客語文章生成、客語影音與字幕、文化知識問答、Podcast 內容生成。</p>
+          </article>
+          <article class="zone">
+            <img src="gohakka_KIWI.png" alt="Go Hakka 標誌" style="width:40px; height:40px; object-fit:contain;">
+            <h3>學生專題與課程成果</h3>
+            <p>跨院課程成果、AI 應用設計、客庄資料分析與資訊視覺化作品。</p>
+          </article>
+          <article class="zone">
+            <img src="gohakka_KIWI.png" alt="Go Hakka 標誌" style="width:40px; height:40px; object-fit:contain;">
+            <h3>產業與技術產品展示</h3>
+            <p>客語 AI 實體機器人、智慧導覽系統、語言學習平台與互動裝置。</p>
+          </article>
+          <article class="zone">
+            <img src="gohakka_KIWI.png" alt="Go Hakka 標誌" style="width:40px; height:40px; object-fit:contain;">
+            <h3>互動體驗與回饋區</h3>
+            <p>現場試用、問卷回饋、合作洽談與後續應用需求蒐集。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Tech Demo</div>
+            <h2>技術展示</h2>
+            <p class="section-desc">展示結合語音辨識、語音合成、機器翻譯、大型語言模型與知識系統之客語 AI 應用服務。</p>
+          </div>
+        </div>
+
+        <div class="demo-list">
+          <article class="demo-item"><span>01</span><div><b>客語 ASR 語音辨識</b><p>支援客語語音輸入、逐字轉寫與發音學習應用。</p></div></article>
+          <article class="demo-item"><span>02</span><div><b>客語 TTS 語音合成</b><p>展示多說話人、多腔調之客語語音生成與影音應用。</p></div></article>
+          <article class="demo-item"><span>03</span><div><b>華客／客華機器翻譯</b><p>支援文化語境、語域差異與學習情境之翻譯展示。</p></div></article>
+          <article class="demo-item"><span>04</span><div><b>HAKKAGPT 客語知識系統</b><p>透過 RAG 與客家知識庫提供文化問答與資料查詢。</p></div></article>
+          <article class="demo-item"><span>05</span><div><b>客語 AI 實體機器人</b><p>提供現場互動體驗，展示智慧導覽與教育應用。</p></div></article>
+          <article class="demo-item"><span>06</span><div><b>文化資料資訊視覺化</b><p>以圖表、地圖、網絡與時間軸呈現客家文化資料。</p></div></article>
+          <article class="demo-item"><span>07</span><div><b>客語內容生成平台</b><p>生成客語文章、語音、影片與字幕，支援社群傳播。</p></div></article>
+          <article class="demo-item"><span>08</span><div><b>客語 AI 學習平台</b><p>結合情境對話、發音練習、模擬測驗與自適應學習。</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="forum">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Technology Forum</div>
+            <h2>技術論壇</h2>
+            <p class="section-desc">論壇主題為「客語 AI 未來發展與跨域整合」，聚焦資料、模型、應用、倫理與產學合作。</p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3>資料與語料治理</h3>
+            <p>討論低資源語言資料蒐集、標註、授權、品質控管與資料永續維護策略。</p>
+          </article>
+          <article class="card">
+            <h3>模型與系統架構</h3>
+            <p>討論 ASR、TTS、MT、RAG、GraphRAG 與大型語言模型於客語場域之整合。</p>
+          </article>
+          <article class="card">
+            <h3>應用與社會影響</h3>
+            <p>探討客語 AI 在教育、導覽、傳播、公共服務與產業應用上的發展可能。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+ <section class="registration" id="registration">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Registration</div>
+            <h2>報名與投稿</h2>
+            <p class="section-desc"></p>
+          </div>
+        </div>
+
+        <div class="form-card" style="text-align: center; padding: 3rem 2rem;">
+  <p style="margin-bottom: 1.5rem; font-size: 1.1rem; opacity: 0.85;">
+  
+  </p>
+    <a href="https://forms.gle/RNZbvGs16Xp2Jb9z5"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="btn-primary"
+   style="font-size:1.4rem;">
+  前往報名表單 →
+</a>
+
+</div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="venue">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Venue & Travel</div>
+            <h2>交通與會場</h2>
+            <p class="section-desc"></p>
+          </div>
+        </div>
+<div style="display:flex; flex-wrap:wrap; gap:24px; align-items:stretch;">
+  <div class="venue-card" style="flex:1 1 420px; min-width:0;">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3629.4067461553245!2d120.78902677481648!3d24.540602457983034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3469a96897b0bda1%3A0x5fd63eec7c376c77!2z5a6i5a6256CU56m25a246Zmi!5e0!3m2!1szh-TW!2stw!4v1781670744107!5m2!1szh-TW!2stw"
+      width="160%"
+      height="100%"
+      style="border:0; border-radius:16px; display:block; min-height:360px;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+  <article class="card" style="flex:1 1 420px; min-width:0;">
+    <h3>會場資訊</h3>
+    <p><b>地點：</b>國立聯合大學八甲校區客家研究學院</p>
+    <p style="margin-top:12px;"><b>交通與到達方式：</b><br>
+    1. 臺鐵－苗栗站：<br>
+    　(1) 計程車：約12分鐘抵達八甲校區<br>
+    　(2) 公車轉乘：搭乘<a href="https://www.taiwanbus.tw/eBUSPage/Query/QueryResult.aspx?rno=58150&rn=1603348570651&lan=C" target="_blank" style="color:#1d4ed8; text-decoration:underline; font-weight:600;">苗栗客運 5815</a>，直達八甲校區<br>
+    2. 高鐵：<br>
+    　(1) 計程車：約25分鐘抵達八甲校區<br>
+    　(2) 公車轉乘：搭乘<a href="https://www.taiwanbus.tw/eBUSPage/Query/QueryResult.aspx?rno=58150&rn=1603348570651&lan=C" target="_blank" style="color:#1d4ed8; text-decoration:underline; font-weight:600;">苗栗客運 5815</a>，直達八甲校區
+    </p>
+  </article>
+</div>
+
+  <section id="downloads">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Downloads</div>
+            <h2>下載專區</h2>
+            <p class="section-desc" style="color:red;"></p>
+          </div>
+        </div>
+
+        <div class="download-list">
+  <a class="download-item" href="HHT 2026 PDF.pdf" download aria-label="論文格式範本"><b>論文格式範本</b><span>PDF</span></a>
+  <a class="download-item" href="HHT 2026 WORD.docx" download aria-label="論文格式範本"><b>論文格式範本</b><span>WORD</span></a>
+  <a class="download-item" href="agenda.pdf" download aria-label="活動議程"><b>活動議程</b><span>PDF</span></a>
+</div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">FAQ</div>
+            <h2>常見問題</h2>
+          </div>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>可以只參加成果展或技術展示嗎？</summary>
+            <p>可以。報名表可設定參與日期與參與類型，讓與會者依需求選擇議程、展示或論壇。</p>
+          </details>
+          <details>
+            <summary>論文一定要與客語 AI 直接相關嗎？</summary>
+            <p>建議與客語、客家文化、低資源語言、語言科技、文化轉譯或生成式 AI 應用有明確關聯。</p>
+          </details>
+          <details>
+            <summary>技術展示可以是尚未商品化的原型嗎？</summary>
+            <p>可以。歡迎系統原型、學生專題、研究展示、產業雛形與互動應用參與展示。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <div>
+      <strong>臺灣客語 AI 文化轉譯與創新應用成果展、技術展示暨論壇</strong>
+      <div>Taiwan Hakka AI Cultural Translation & Innovation Forum</div>
+      <div>主辦單位：國立聯合大學客家研究學院｜執行單位：智慧客家實驗室</div>
+    </div>
+    <div>
+      <strong>聯絡資訊</strong>
+      <div>活動地點：國立聯合大學八甲校區客家研究學院</div>
+      <div>聯絡人與電話：許小姐，0937198239</div>
+      <div>電子郵件：hakka.ai.lab@gmail.com</div>
+      <div><a href="#home">返回頁首</a></div>
+    </div>
+  </div>
+  <div class="footer-logos">
+    <img src="college_logo.png" alt="客家研究學院">
+    <img src="aihakka_logo.png" alt="智慧客家實驗室" class="logo-large">
+    <img src="nuu_logo.png" alt="國立聯合大學">
+  </div>
+</footer>
+
+<style>
+.footer-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  padding: 24px 0 8px;
+  border-top: 1px solid rgb(255, 255, 255);
+  margin-top: 24px;
+}
+
+.footer-logos img {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+
+.footer-logos .logo-large {
+  height: 150px;
+}
+</style>
+
+  <button class="back-top" type="button" aria-label="回到頁首">↑</button>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const panels = document.querySelectorAll('.program-panel');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        tabButtons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-selected', 'false');
+        });
+        panels.forEach(panel => panel.classList.remove('active'));
+        button.classList.add('active');
+        button.setAttribute('aria-selected', 'true');
+        document.getElementById(button.dataset.tab).classList.add('active');
+      });
+    });
+
+    const eventDate = new Date('2026-11-24T09:00:00+08:00');
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = eventDate - now;
+
+      if (diff <= 0) {
+        daysEl.textContent = '0';
+        hoursEl.textContent = '0';
+        minutesEl.textContent = '0';
+        secondsEl.textContent = '0';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      daysEl.textContent = days;
+      hoursEl.textContent = hours;
+      minutesEl.textContent = minutes;
+      secondsEl.textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    const backTop = document.querySelector('.back-top');
+    window.addEventListener('scroll', () => {
+      backTop.classList.toggle('show', window.scrollY > 560);
+    });
+
+    backTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
